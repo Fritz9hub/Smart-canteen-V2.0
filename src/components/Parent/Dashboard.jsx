@@ -52,11 +52,13 @@ export default function ParentDashboard() {
   const studentTransactions = transactions.filter(t => t.studentId === activeStudentId);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'var(--card-bg)', padding: '1rem 2rem', borderBottom: '1px solid var(--border-color)' }}>
-        <h2 style={{ margin: 0, marginRight: '2rem' }}>Parent Portal</h2>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <span className="input-label" style={{ margin: 0 }}>Select Child:</span>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
+      {/* Left Sidebar */}
+      <div style={{ width: '250px', backgroundColor: 'var(--card-bg)', borderRight: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', padding: '2rem 1rem' }}>
+        <h2 style={{ margin: '0 0 2rem 0', fontSize: '1.3rem' }}>Parent Portal</h2>
+        
+        <div style={{ marginBottom: '2rem' }}>
+          <label className="input-label" style={{ display: 'block', marginBottom: '0.75rem' }}>Select Child:</label>
           <select 
             className="input-field" 
             value={activeStudentId} 
@@ -66,17 +68,25 @@ export default function ParentDashboard() {
                setDailyLimit(s.dailyLimit);
                setRestrictedItems(s.restrictedItems);
             }}
-            style={{ width: 'auto', minWidth: '150px', margin: 0 }}
+            style={{ width: '100%', margin: 0 }}
           >
             {myStudents.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
         </div>
-        <button className="btn btn-danger" onClick={logout} style={{ marginLeft: 'auto' }}>
+
+        <div style={{ flex: 1 }} />
+        
+        <button 
+          className="btn btn-danger" 
+          onClick={logout} 
+          style={{ width: '100%', textAlign: 'center', justifyContent: 'center', padding: '0.75rem' }}
+        >
           Logout
         </button>
       </div>
 
-      <div className="main-content">
+      {/* Main Content */}
+      <div className="main-content" style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
         <h1>{activeStudent.name}'s Profile</h1>
         
         <div className="grid-cols-2" style={{ marginBottom: '2rem' }}>

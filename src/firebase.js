@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDt-j-QRFpIBg2UY2jfPOw0oGXQPmKhe5E",
-    authDomain: "smart-canteen-system-1.firebaseapp.com",
-    projectId: "smart-canteen-system-1",
-    storageBucket: "smart-canteen-system-1.firebasestorage.app",
-    messagingSenderId: "359087461796",
-    appId: "1:359087461796:web:5dead5a8523af76784dd31",
-    measurementId: "G-F87EHS94TY"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
 };
 
 // Initialize Firebase

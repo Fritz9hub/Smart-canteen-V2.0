@@ -52,20 +52,44 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'var(--card-bg)', padding: '1rem 2rem', borderBottom: '1px solid var(--border-color)' }}>
-        <h2 style={{ margin: 0, marginRight: '2rem' }}>Admin Panel</h2>
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
-          <button className={`btn ${activeTab === 'monitoring' ? 'btn-primary' : ''}`} onClick={() => setActiveTab('monitoring')}>Statistics</button>
-          <button className={`btn ${activeTab === 'users' ? 'btn-primary' : ''}`} onClick={() => setActiveTab('users')}>Users Management</button>
-          <button className={`btn ${activeTab === 'operators' ? 'btn-primary' : ''}`} onClick={() => setActiveTab('operators')}>Operators</button>
-        </div>
-        <button className="btn btn-danger" onClick={logout} style={{ marginLeft: 'auto' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
+      {/* Left Sidebar Navigation */}
+      <div style={{ width: '200px', backgroundColor: 'var(--card-bg)', borderRight: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', padding: '2rem 0' }}>
+        <h2 style={{ padding: '0 1rem', marginBottom: '2rem', fontSize: '1.3rem' }}>Admin Panel</h2>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
+          <button 
+            className={`btn ${activeTab === 'monitoring' ? 'btn-primary' : ''}`} 
+            onClick={() => setActiveTab('monitoring')}
+            style={{ margin: '0 0.5rem', textAlign: 'left', justifyContent: 'flex-start', padding: '0.75rem 1rem' }}
+          >
+            Statistics
+          </button>
+          <button 
+            className={`btn ${activeTab === 'users' ? 'btn-primary' : ''}`} 
+            onClick={() => setActiveTab('users')}
+            style={{ margin: '0 0.5rem', textAlign: 'left', justifyContent: 'flex-start', padding: '0.75rem 1rem' }}
+          >
+            Users Management
+          </button>
+          <button 
+            className={`btn ${activeTab === 'operators' ? 'btn-primary' : ''}`} 
+            onClick={() => setActiveTab('operators')}
+            style={{ margin: '0 0.5rem', textAlign: 'left', justifyContent: 'flex-start', padding: '0.75rem 1rem' }}
+          >
+            Operators
+          </button>
+        </nav>
+        <button 
+          className="btn btn-danger" 
+          onClick={logout} 
+          style={{ margin: '0 0.5rem', textAlign: 'left', justifyContent: 'flex-start', padding: '0.75rem 1rem' }}
+        >
           Logout
         </button>
       </div>
 
-      <div className="main-content" style={{ position: 'relative' }}>
+      {/* Main Content */}
+      <div className="main-content" style={{ flex: 1, padding: '2rem', overflowY: 'auto' }}>
         {activeTab === 'monitoring' && (
           <div>
             <h1>Dashboard Statistics</h1>
